@@ -1,25 +1,58 @@
-let size = 16*16;
+//globals
+const container = document.querySelector("#container");
 let grids = [];
-for(let i=0; i<size; i++){
-    grids.push({
-        id: i
-    })
+let draw = false;
+
+
+function setSize(){
+    let size = 16*16;
+    
+    for(let i=0; i<size; i++){
+        grids.push({
+            id: i
+        })
+    }
 }
-const container = document.querySelector("#container")
+
 
 function rendergrid(){
     const gridarray = grids.map(grid => `
-    <div class="grid" data-id="${grid.id}" onclick="clickfunction(${grid.id})" onmousedown="clickfunction(${grid.id})"> </div>`);
+    <div class="grid" data-id="${grid.id}"> </div>`);
 
     container.innerHTML = gridarray.join(``);
-    console.log(container)
 }
 
-function clickfunction(dataid){
-    const clicked = document.querySelector(`[data-id='${dataid}']`);
-    clicked.style.backgroundColor = "#333";
-    
+function events(){ 
+    const grid = document.querySelectorAll('.grid');
+    Array.from(grid).forEach((square) => {
+
+        square.getAttribute('[data-id]');
+
+        square.addEventListener('click', () => {
+            
+            square.style.backgroundColor = "#444";
+
+        })
+        square.addEventListener('mouseover', () => {
+            if(draw){
+                square.style.backgroundColor = "#235";
+            }
+        })
+        
+    });
+}
+function drawOnGrid(){
+    draw = true 
+}
+
+function stopDraw(){
+    draw = false 
 }
 
 
+setSize();
 rendergrid();
+events();
+
+container.onmousedown = drawOnGrid;
+container.onmouseup = stopDraw;
