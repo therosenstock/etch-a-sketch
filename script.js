@@ -30,12 +30,12 @@ function events(){
 
         square.addEventListener('click', () => {
             
-            square.style.backgroundColor = "#444";
+            square.style.backgroundColor = "#333";
 
         })
         square.addEventListener('mouseover', () => {
             if(draw){
-                square.style.backgroundColor = "#235";
+                square.style.backgroundColor = "#333";
             }
         })
         
