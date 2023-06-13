@@ -1,11 +1,10 @@
 //PADROES
 const default_color = "red";
-const default_size = 16;
+const default_size = 28;
 const default_mode = "COLOR"
 
 //GLOBAIS
 const container = document.querySelector("#container");
-let grids = [];
 let draw = false;
 let current_size = default_size;
 let current_color = default_color;
@@ -22,7 +21,9 @@ range.onmousemove = (e) => updateSizeValue(e.target.value)
 range.onchange = (e) => changeSize(e.target.value)
 
 
-function setSize(){
+function setSizeGrid(){
+    let grids = [];
+
     let qtde = current_size*current_size;
     
     for(let i=0; i<qtde; i++){
@@ -30,10 +31,11 @@ function setSize(){
             id: i
         })
     }
+    renderGrid(grids)
 }
 
 
-function rendergrid(){
+function renderGrid(grids){
     const gridarray = grids.map(grid => `
     <div class="grid" data-id="${grid.id}"> </div>`);    
 
@@ -42,13 +44,12 @@ function rendergrid(){
     const grid = document.querySelectorAll('.grid');
     Array.from(grid).forEach((square) => {
         square.style.height = `${gridSize}px`;
-        square.style.width = `${gridSize}px`
+        square.style.width = `${gridSize}px`;
     })
-    console.log(grid)
-    
+    eventGrid();    
 }
 
-function events(){ 
+function eventGrid(){ 
     const grid = document.querySelectorAll('.grid');
     Array.from(grid).forEach((square) => {
 
@@ -60,6 +61,12 @@ function events(){
 
         })
         square.addEventListener('mouseover', () => {
+            if(draw){
+                square.style.backgroundColor = current_color;
+
+            }
+        })
+        square.addEventListener('mouseleave', () => {
             if(draw){
                 square.style.backgroundColor = current_color;
             }
@@ -79,11 +86,9 @@ function changeSize(value){
     current_size = value;
     console.log(value)
     gridSize = 600 / current_size;
-    // updateSizeValue(value);
-    // clear();
-    // setSize();
-    // rendergrid();
-    // events();
+    updateSizeValue(value);
+    clearGrid();
+    setSizeGrid();
 }
 
 function updateSizeValue(value){
@@ -99,13 +104,11 @@ function clickMenu(){
    
 }
 
-function clear(){
-    container.innerHTML = ''
+function clearGrid(){
+    container.innerHTML = '';
 }
 
-setSize();
-rendergrid();
-events();
+setSizeGrid();
 
 container.onmousedown = drawOnGrid;
 container.onmouseup = stopDraw;
