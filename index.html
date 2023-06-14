@@ -20,22 +20,22 @@
             </span>
             <div class="settings">
                 <div>
-                    <button>Clear</button>
+                    <button id="btn-clean" onclick="clearGrid()">Clear</button>
                 </div>
                 <div>
-                    <button>Eraser Mode</button>
+                    <button id="btn-eraser" onclick="changeMode('ERASER')">Eraser Mode</button>
                 </div>
                 <div>
-                    <button>Draw Mode</button>
+                    <button id="btn-draw" onclick="changeMode('DRAW')"> Draw Mode</button>
                 </div>
                 <div>
                     <label>Color Picker</label>
-                    <input type="color">
+                    <input id="color-pick" type="color">
                 </div>
                 <div>
                     <label>Size</label>
                     <input id="tamanho" type="range" min="16" max="64" value="16" step="2">
-                    <output id="resultado" value="16"></output>
+                    <output id="resultado" value="16">16 X 16</output>
                 </div>
             
             </div>
