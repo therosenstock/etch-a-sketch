@@ -10,6 +10,10 @@ body{
 }
 h1{
     text-align: center;
+    margin: 12px;
+    font-family: 'Gasoek One', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
 }
 
 .principal-content{
@@ -33,11 +37,13 @@ h1{
     background-color: #fff;
     width: 400px;
     min-height: 630px;
+    text-align: center;
 
 }
 .settings div{
-    margin: 8px;
+    margin: auto;
     font-size: 1rem;
+    margin-bottom: 16px;
 }
 .settings div button{
     background-color: rgb(170, 153, 4);
@@ -45,7 +51,13 @@ h1{
     font-size: 1rem;
     padding: 8px;
     color: white;
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
     
+}
+.settings div button:hover{
+    background-color: rgb(131, 118, 3);
 }
 .drawing{
     width: 100%;
@@ -56,11 +68,12 @@ h1{
     margin: auto;
     background-color: #fff;
     border: 0px solid #333;
-    width: 600px;
-    height: 600px;
+    width: 550px;
+    height: 550px;
     display: flex;
     flex-wrap: wrap;
     line-height: 0;
+    cursor: pointer;
 }
 .grid{
     
@@ -68,4 +81,58 @@ h1{
     background-color: #fff;
     margin: 0;
     
+}
+.selects{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: white;
+    background-color: rgb(170, 153, 4);
+    width: 250px;
+    height: 50px;
+    margin-left: 30px;
+}
+.selects:hover{
+    background-color: rgb(131, 118, 3);
+}
+#color-pick{
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height: 40px;
+    width: 35px;
+    border: none;
+    background-color: transparent;
+
+}
+#color-pick::-webkit-color-swatch{
+    border-radius: 30px;
+    border: none;
+}
+#tamanho{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    width: 100px;
+    cursor: pointer;
+
+}
+#tamanho::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: #000000;
+    cursor: pointer;
+}
+
+#tamanho::-webkit-slider{
+    -webkit-appearance: none;
+    appearance: none;
+    background: #000000;
+    cursor: pointer;
+    cursor: pointer;
+
 }

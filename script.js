@@ -1,6 +1,6 @@
 //PADROES
-const default_color = "rgb(33,203,33)";
-const default_size = 16;
+const default_color = "#333";
+const default_size = 10;
 const default_mode = "DRAW"
 
 //GLOBAIS
@@ -9,7 +9,7 @@ let draw = false;
 let current_size = default_size;
 let current_color = default_color;
 let current_mode = default_mode;
-let gridSize = 600 / current_size;
+let gridSize = 550 / current_size;
 
 //DOM HTML
 let itens = document.querySelector(".settings");
@@ -106,13 +106,13 @@ function stopDraw(){
 function changeSize(value){
     current_size = value;
     console.log(value)
-    gridSize = 600 / current_size;
+    gridSize = 550 / current_size;
     updateSizeValue(value);
     clearGrid();
 }
 
 function updateSizeValue(value){
-    output.innerHTML = `${value} X ${value}`
+    output.innerHTML = `${value}x`
 } 
 
 function clickMenu(){
