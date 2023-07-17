@@ -2,8 +2,7 @@
 
 - [X] Criar a grade;
 - [X] Desenhar nos blocos;
-- [ ] Redimensionar a grade;
-- [ ] Modo borracha;
-- [ ] Mudar cor do pincel;
-- [ ] Modo Rainbow;
-- [ ] Apagar desenho;
+- [X] Redimensionar a grade;
+- [X] Modo borracha;
+- [X] Mudar cor do pincel;
+- [X] Apagar desenho;
